@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    
+      <div th:object="${product}">
+    <p>Name: <span th:text="*{name}"></span>.</p>
+    <p>Leather: <span th:text="*{leather}"></span>.</p>
+    <p>Price: <span th:text="*{price}"></span>.</p>
+  </div>
+    
+</body>
+</html>
