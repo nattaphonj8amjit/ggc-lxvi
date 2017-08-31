@@ -1,5 +1,0 @@
-[30/Aug/2017:22:40:06 +0700] 0:0:0:0:0:0:0:1 "GET /share/calculate HTTP/1.1" 200 (- ms)
-[30/Aug/2017:22:40:06 +0700] 0:0:0:0:0:0:0:1 "GET /js/jquery.min.js HTTP/1.1" 200 (- ms)
-[30/Aug/2017:22:40:06 +0700] 0:0:0:0:0:0:0:1 "GET /js/semantic.min.js HTTP/1.1" 200 (- ms)
-[30/Aug/2017:22:40:06 +0700] 0:0:0:0:0:0:0:1 "GET /css/semantic.css HTTP/1.1" 200 (- ms)
-[30/Aug/2017:22:40:07 +0700] 0:0:0:0:0:0:0:1 "GET /favicon.ico HTTP/1.1" 200 (- ms)
