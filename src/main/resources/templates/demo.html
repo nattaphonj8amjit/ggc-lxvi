@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/css/semantic.css}" />
+<style type="text/css">
+.ui.table thead th{
+font-weight: normal;
+}
+.green{
+color: green;
+}
+.red{
+color:red; 
+}
+.blue{
+color:blue; 
+}
+</style>
+</head>
+<body>
+	<div style="min-height: 30px"></div>
+	<table class="ui celled table">
+		<thead>
+			<tr>
+				<th>Group 1</th>
+				<th>Group 2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<table class="ui celled table">
+						<thead>
+							<tr>
+								<th>Round</th>
+								<th>Interest</th>
+								<th>Take</th>
+								<th>Lost</th>
+								<th>Profit</th>
+							</tr>
+						</thead>
+						<tr th:each="roundModel : ${A.roundModels}">
+							<td th:text="${roundModel.round}"></td>
+							<td th:text="${roundModel.interest}"></td>
+							<td th:text="${roundModel.take}" th:class="green"></td>
+							<td th:text="${roundModel.give}" th:class="red"></td>
+							<td th:text="${roundModel.take - roundModel.give}" th:class="${roundModel.take - roundModel.give > 0} ? 'green' : 'red'"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td th:text="${A.next}" th:class="blue"></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+				<table class="ui celled table">
+						<thead>
+							<tr>
+								<th>Round</th>
+								<th>Interest</th>
+								<th>Take</th>
+								<th>Lost</th>
+								<th>Profit</th>
+							</tr>
+						</thead>
+						<tr th:each="roundModel : ${B.roundModels}">
+							<td th:text="${roundModel.round}"></td>
+							<td th:text="${roundModel.interest}"></td>
+							<td th:text="${roundModel.take}" th:class="green"></td>
+							<td th:text="${roundModel.give}" th:class="red"></td>
+							<td th:text="${roundModel.take - roundModel.give}" th:class="${roundModel.take - roundModel.give > 0} ? 'green' : 'red'"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td th:text="${B.next}" th:class="blue"></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	
+	
+</body>
+</html>

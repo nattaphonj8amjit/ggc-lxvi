@@ -1,0 +1,17 @@
+{
+	"created": {
+		"timestampMicroseconds": 1491760114758000,
+		"timestampMillis": 1491760114758
+	},
+	"product": {
+		"created": {
+			"timestampMicroseconds": 1491718522108000,
+			"timestampMillis": 1491718522108
+		},
+		"description": "example4",
+		"done": false,
+		"leather": "japan-cow",
+		"name": "md2016-4",
+		"price": 1000.0
+	}
+}

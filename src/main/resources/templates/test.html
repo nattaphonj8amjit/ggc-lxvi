@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/css/semantic.css}" />
+
+</head>
+<body>
+
+
+
+	<div id="app">{{ message }}</div>
+
+	<script>
+		var app = new Vue({
+			el : '#app',
+			data : {
+				message : 'Hello Vue!'
+			}
+		})
+	</script>
+
+
+	<br />
+
+	<div id="app-2">
+		<span v-bind:title="message"> Hover your mouse over me for a
+			few seconds to see my dynamically bound title! </span>
+	</div>
+
+	<script>
+		var app2 = new Vue({
+			el : '#app-2',
+			data : {
+				message : 'You loaded this page on ' + new Date()
+			}
+		})
+	</script>
+
+	<br />
+
+
+
+	<div id="app-3">
+		<p v-if="seen">Now you see me</p>
+	</div>
+
+	<script>
+		var app3 = new Vue({
+			el : '#app-3',
+			data : {
+				seen : true
+			}
+		})
+	</script>
+
+
+	<br />
+
+
+	<div id="app-4">
+		<ol>
+			<li v-for="todo in todos">{{ todo.text }}{{todo.number }}</li>
+		</ol>
+	</div>
+	<script>
+		var app4 = new Vue({
+			el : '#app-4',
+			data : {
+				todos : [ {
+					text : 'Learn JavaScript',
+					number : 100
+				}, {
+					text : 'Learn Vue',
+					number : 200
+				}, {
+					text : 'Build something awesome',
+					number : 300
+				} ]
+			}
+		})
+	</script>
+	<br />
+	<div id="app-5">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">Reverse Message</button>
+
+	</div>
+
+	<script>
+		var app5 = new Vue({
+			el : '#app-5',
+			data : {
+				message : 'Hello Vue.js!'
+			},
+			methods : {
+				reverseMessage : function() {
+					this.message = this.message.split('').reverse().join('')
+				}
+			}
+		})
+	</script>
+	<br />
+
+
+
+	<div id="app-6">
+		<p>{{ message }}</p>
+		<input v-model="message" />
+	</div>
+
+	<script>
+		var app6 = new Vue({
+			el : '#app-6',
+			data : {
+				message : 'Hello Vue!'
+			}
+		})
+	</script>
+	<br />
+
+
+
+
+
+
+	<div id="app-7">
+		<ol>
+			<todo-item v-for="item in xxx" v-bind:todo="item"></todo-item>
+		</ol>
+	</div>
+
+	<script>
+		Vue.component('todo-item', {
+			props : [ 'todo' ],
+			template : '<li>{{ todo.text }}</li>'
+		})
+		var app7 = new Vue({
+			el : '#app-7',
+			data : {
+				xxx : [ {
+					text : 'Vegetables'
+				}, {
+					text : 'Cheese'
+				}, {
+					text : 'Whatever else humans are supposed to eat'
+				} ]
+			}
+		})
+	</script>
+
+
+	<div id="app-8">
+		<table>
+			<tr>
+				<th>1</th>
+				<th>2</th>
+			</tr>
+			<tr v-for="doc in docs" :doc="doc" :key="doc.no" is="search-result">
+			</tr>
+
+
+		</table>
+	</div>
+
+	<script>
+		Vue.component('search-result', {
+			props : [ 'doc' ],
+			template : '<tr><td>{{ doc.no }}</td><td>{{ doc.name}}</td></tr>'
+		})
+
+		let app8 = new Vue({
+			el : '#app-8',
+			data : {
+				docs : [ {
+					no : 1,
+					name : 'A'
+				}, {
+					no : 2,
+					name : 'B'
+				}, {
+					no : 3,
+					name : 'C'
+				} ]
+			}
+
+		})
+	</script>
+
+
+</body>
+</html>
